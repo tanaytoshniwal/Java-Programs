@@ -1,4 +1,5 @@
 import java.applet.Applet;
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Shapes extends Applet{
@@ -6,6 +7,8 @@ public class Shapes extends Applet{
 	public void init(){
 		super.init();
 		setSize(700,500);
+		setBackground(Color.CYAN);
+		setForeground(Color.BLUE);
 	}
 	@Override
 	public void paint(Graphics g){
@@ -29,5 +32,7 @@ public class Shapes extends Applet{
 		g.drawLine(420, 200, 500, 200);
 		g.drawLine(420, 20, 500, 20);
 		g.drawLine(500, 20, 500, 200);
+		//drawing rectangle
+		g.drawRect(16, 16, 488, 188);
 	}
 }

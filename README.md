@@ -1,2 +1,2 @@
 # Java-Programs
-My Implementation of some JAVA programs
+Practice Java programs and my Implementation of Java Programs

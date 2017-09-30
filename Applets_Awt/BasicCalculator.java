@@ -15,8 +15,8 @@ public class BasicCalculator extends Applet{
 	@Override
 	public void init() {
 		setSize(500,500);
-		t1=new TextField();
-		t2=new TextField();
+		t1=new TextField(10);
+		t2=new TextField(10);
 		result=new TextField();
 		result.setEditable(false);
 		choice=new Choice();

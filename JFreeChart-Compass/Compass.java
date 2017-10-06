@@ -93,16 +93,17 @@ private JFreeChart createChart(final ValueDataset dataset) {
         ValueDataset dataset;
         boolean b=true;
         //outer end
-            getValue();
+            /*getValue();
             dataset=new DefaultValueDataset(degree);
-            final JFreeChart chart = obj.createChart(dataset);
+            JFreeChart chart = obj.createChart(dataset);
             obj.panel.setLayout(new java.awt.BorderLayout());
             ChartPanel pan = new ChartPanel(chart);
-            pan.setPreferredSize(new java.awt.Dimension(500, 270));
-            pan.setEnforceFileExtensions(false);
+            //pan.setPreferredSize(new java.awt.Dimension(500, 270));
+            //pan.setEnforceFileExtensions(false);
             //setContentPane(pan);
-            obj.panel.add(pan,BorderLayout.CENTER);
-            obj.panel.validate();/*
+            //obj.panel.add(pan,BorderLayout.CENTER);
+            obj.panel.validate();*/
+            //int val=0;
         while(b){
             //inner
             getValue();
@@ -112,11 +113,13 @@ private JFreeChart createChart(final ValueDataset dataset) {
             ChartPanel pan = new ChartPanel(chart);
             pan.setPreferredSize(new java.awt.Dimension(500, 270));
             pan.setEnforceFileExtensions(false);
-            //setContentPane(pan);
+                                            //setContentPane(pan);
             obj.panel.add(pan,BorderLayout.CENTER);
+            //obj.panel.revalidate();
+            //if(val++<1)
             obj.panel.validate();
             //inner end
-        }*/
+        }
     }
 
     // Variables declaration - do not modify                     

@@ -1,4 +1,4 @@
-###This program calculates the order of a given string using the given jagged array 
+### This program calculates the order of a given string using the given jagged array 
 ```bash
   A
   B C

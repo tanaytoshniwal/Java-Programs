@@ -1,18 +1,23 @@
-This program calculates the order of a given string using the given jagged array 
-  A \n
-  B C \n
-  D E F \n
-  G H I J \n
-  K \n
-  L M \n
-  N O P \n
-  Q R S T \n
-  U \n
-  V W \n
-  X Y Z \n
+### This program calculates the order of a given string using the given jagged array 
+```bash
+  A
+  B C
+  D E F
+  G H I J
+  K
+  L M
+  N O P
+  Q R S T
+  U
+  V W
+  X Y Z
+```
 Now according to the given position of the given array we get the order of a particular character of input string using formula
+```bash
   xPosition*yPosition
+```
 Then to find order of a String the formula is
+```bash
   ∑(position of character from right)^(order of the character)
-
+```
 For example order of the string "SRM" is 858

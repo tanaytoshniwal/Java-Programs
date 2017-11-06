@@ -13,7 +13,7 @@ public class DBInfo2 {
 	public static Connection getConnection(){
 		Connection con=null;
 		try{
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject","root","tanay1998");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject","root","root");
 		}
 		catch(Exception e){
 			e.printStackTrace();

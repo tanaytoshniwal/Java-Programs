@@ -6,10 +6,22 @@ import java.util.Scanner;
 
 public class InsertValues {
 	public static void main(String[] args) throws ClassNotFoundException,SQLException{
-		//loading the driver
+		//use 1
+		
+		/*//loading the driver
 		Class.forName("com.mysql.jdbc.Driver");
 		//making a connection
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject", "root", "tanay1998");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject", "root", "root");
+		*/
+		
+		//use 2
+		/*
+		Connection con=DBInfo1.con;
+		*/
+		
+		//use 3
+		Connection con=DBInfo2.getConnection();
+		
 		//query generation
 		String query="INSERT INTO login(username,password,usertype) VALUES(?,?,?)";
 		//input

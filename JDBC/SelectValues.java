@@ -18,7 +18,16 @@ public class SelectValues {
 		int count=rsmd.getColumnCount();
 		System.out.println("Column count : "+count);
 		for(int i=1;i<=count;i++){
-			
+			System.out.println(rsmd.getColumnName(i)+":::"+rsmd.getColumnDisplaySize(i)+":::"+rsmd.getColumnTypeName(i));
 		}
+		System.out.println("---------------------------------------\nGetting Records Data\n---------------------------------------");
+		
+		// getting records data
+		while(rs.next()){
+			System.out.println(rs.getInt(1)+":::"+rs.getString(2)+":::"+rs.getString(3)+":::"+rs.getString(4));
+		}
+		rs.close();
+		con.close();
+		stmt.close();
 	}
 }

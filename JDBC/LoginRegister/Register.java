@@ -1,10 +1,13 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class Register extends JFrame{
+public class Register extends JFrame implements ActionListener{
 	JLabel l1,l2,l3;
 	JTextField username,usertype;
 	JPasswordField password;
@@ -40,6 +43,10 @@ public class Register extends JFrame{
 		add(usertype);
 		add(register);
 		add(reset);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e){
+		
 	}
 	public static void main(String[] args){
 		new Register("Register Frame").setVisible(true);

@@ -59,12 +59,37 @@ public class Login extends JFrame implements ActionListener{
 				String name=username.getText();
 				char[] passc=password.getPassword();
 				String pass=String.copyValueOf(passc);
-				String query="Select password from login where username = \""+name+"\"";
-				PreparedStatement stmt=con.prepareStatement(query);
-				ResultSet res=stmt.executeQuery();
-				res.next();
-				String dpas=res.getString(1);
-				//System.out.println(dpas);
+				if(name.equals("")||pass.equals("")){
+					JOptionPane.showMessageDialog(this, "Input is Empty!","ERROR!",JOptionPane.INFORMATION_MESSAGE);
+				}
+				else{
+					String query="Select password from login where username = \""+name+"\"";
+					String dpas="";
+					boolean b=true;
+					try{
+						PreparedStatement stmt=con.prepareStatement(query);
+						ResultSet res=stmt.executeQuery();
+						res.next();
+						dpas=res.getString(1);
+					}catch(SQLException sqle){
+						int in=JOptionPane.showConfirmDialog(getParent(), "Do you want to Register?","Wrong Credentials!",JOptionPane.YES_NO_OPTION);
+						if(in==0){
+							System.out.println("registeration requested!");
+							new Register("Register Frame").setVisible(true);
+							Login.this.dispose();
+						}
+						b=false;
+					}
+					//System.out.println(dpas);
+					if(b){
+						if(dpas.equals(pass)){
+							JOptionPane.showMessageDialog(this,"Congratulations!","You have successfully Logged In!",JOptionPane.INFORMATION_MESSAGE);
+						}
+						else{
+							JOptionPane.showMessageDialog(this, "Wrong Credentials!","Do You want to Register?",JOptionPane.INFORMATION_MESSAGE);
+						}
+					}
+				}
 			}catch(SQLException sqle){
 				JOptionPane.showMessageDialog(this,sqle.getMessage(),"ERROR!",JOptionPane.ERROR_MESSAGE);
 			}catch(ClassNotFoundException cnfe){

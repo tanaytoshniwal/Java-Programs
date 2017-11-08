@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +22,8 @@ public class Login extends JFrame implements ActionListener{
 		super(str);
 		setSize(500,500);
 		setLocationRelativeTo(this);
-		setLayout(new FlowLayout());
+		setLayout(null);
+		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		username = new JTextField(12);
 		password = new JPasswordField(12);
@@ -31,12 +33,18 @@ public class Login extends JFrame implements ActionListener{
 		l2=new JLabel("Enter Password");
 		login.addActionListener(this);
 		reset.addActionListener(this);
+		l1.setBounds(100,20,100,10);
+		l2.setBounds(100,50,100,10);
+		username.setBounds(250,18,150,18);
+		password.setBounds(250,48,150,18);
+		
 		add(l1);
 		add(username);
 		add(l2);
 		add(password);
 		add(login);
 		add(reset);
+		
 	}
 	@Override
 	public void actionPerformed(ActionEvent e){

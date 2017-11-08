@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
@@ -20,7 +22,7 @@ public class Login extends JFrame implements ActionListener{
 	JLabel l1,l2;
 	public Login(String str){
 		super(str);
-		setSize(500,500);
+		setSize(500,200);
 		setLocationRelativeTo(this);
 		setLayout(null);
 		setResizable(false);
@@ -37,7 +39,8 @@ public class Login extends JFrame implements ActionListener{
 		l2.setBounds(100,50,100,10);
 		username.setBounds(250,18,150,18);
 		password.setBounds(250,48,150,18);
-		
+		login.setBounds(100,80,150,20);
+		reset.setBounds(250,80,150,20);
 		add(l1);
 		add(username);
 		add(l2);
@@ -52,8 +55,16 @@ public class Login extends JFrame implements ActionListener{
 		if(btn==login){
 			try{
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject","root","root");
-				
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject","root","tanay1998");
+				String name=username.getText();
+				char[] passc=password.getPassword();
+				String pass=String.copyValueOf(passc);
+				String query="Select password from login where username = \""+name+"\"";
+				PreparedStatement stmt=con.prepareStatement(query);
+				ResultSet res=stmt.executeQuery();
+				res.next();
+				String dpas=res.getString(1);
+				//System.out.println(dpas);
 			}catch(SQLException sqle){
 				JOptionPane.showMessageDialog(this,sqle.getMessage(),"ERROR!",JOptionPane.ERROR_MESSAGE);
 			}catch(ClassNotFoundException cnfe){

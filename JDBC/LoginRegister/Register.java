@@ -1,9 +1,14 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -14,7 +19,7 @@ public class Register extends JFrame implements ActionListener{
 	JButton register,reset;
 	public Register(String str){
 		super(str);
-		setSize(500,500);
+		setSize(500,200);
 		setLocationRelativeTo(this);
 		setResizable(false);
 		setLayout(null);
@@ -43,10 +48,43 @@ public class Register extends JFrame implements ActionListener{
 		add(usertype);
 		add(register);
 		add(reset);
+		register.addActionListener(this);
+		reset.addActionListener(this);
+	}
+	public void funcReset(){
+		username.setText(null);
+		usertype.setText(null);
+		password.setText(null);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e){
-		
+		if(e.getSource()==reset){
+			funcReset();
+		}
+		else{
+			try{
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject","root","tanay1998");
+				String uname=username.getText();
+				String utype=usertype.getText();
+				char[] passc=password.getPassword();
+				String pass=String.copyValueOf(passc);
+				if(uname.equals("")||utype.equals("")||pass.equals("")){
+					JOptionPane.showMessageDialog(this, "Input is Empty!", "ERROR!", JOptionPane.ERROR_MESSAGE);
+				}
+				else{
+					String query="insert into login(username,password,usertype) values(\""+uname+"\",\""+pass+"\",\""+utype+"\")";
+					//System.out.println(query);
+					PreparedStatement stmt=con.prepareStatement(query);
+					int rowsAffected=stmt.executeUpdate();
+					System.out.println("Querry okay! "+rowsAffected+" Rows Affected!");
+				}
+			}catch(SQLException sqle){
+				JOptionPane.showMessageDialog(this, sqle.getMessage(),"ERROR!", JOptionPane.ERROR_MESSAGE);
+			}catch(ClassNotFoundException cnfe){
+				JOptionPane.showMessageDialog(this, cnfe.getMessage(), "ERROR!", JOptionPane.ERROR_MESSAGE);
+			}
+		}
 	}
 	public static void main(String[] args){
 		new Register("Register Frame").setVisible(true);

@@ -54,7 +54,7 @@ public class Login extends JFrame implements ActionListener{
 		if(btn==login){
 			try{
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject","root","tanay1998");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject","root","root");
 				String name=username.getText();
 				char[] passc=password.getPassword();
 				String pass=String.copyValueOf(passc);

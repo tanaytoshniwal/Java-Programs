@@ -61,6 +61,7 @@ public class Login extends JFrame implements ActionListener{
 				if(name.equals("")||pass.equals("")){
 					JOptionPane.showMessageDialog(this, "Input is Empty!","ERROR!",JOptionPane.INFORMATION_MESSAGE);
 					con.close();
+					resetFunc();
 				}
 				else{
 					String query="Select password from login where username = \""+name+"\"";
@@ -73,6 +74,7 @@ public class Login extends JFrame implements ActionListener{
 						dpas=res.getString(1);
 						stmt.close();
 						res.close();
+						resetFunc();
 					}catch(SQLException sqle){
 						int in=JOptionPane.showConfirmDialog(getParent(), "Do you want to Register?","Wrong Credentials!",JOptionPane.YES_NO_OPTION);
 						if(in==0){
@@ -80,6 +82,7 @@ public class Login extends JFrame implements ActionListener{
 							new Register("Register Frame").setVisible(true);
 							Login.this.dispose();
 							con.close();
+							resetFunc();
 						}
 						b=false;
 					}
@@ -93,6 +96,7 @@ public class Login extends JFrame implements ActionListener{
 						}
 					}
 					con.close();
+					resetFunc();
 				}
 			}catch(SQLException sqle){
 				JOptionPane.showMessageDialog(this,sqle.getMessage(),"ERROR!",JOptionPane.ERROR_MESSAGE);

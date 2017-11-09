@@ -71,6 +71,8 @@ public class Register extends JFrame implements ActionListener{
 				String pass=String.copyValueOf(passc);
 				if(uname.equals("")||utype.equals("")||pass.equals("")){
 					JOptionPane.showMessageDialog(this, "Input is Empty!", "ERROR!", JOptionPane.ERROR_MESSAGE);
+					con.close();
+					funcReset();
 				}
 				else{
 					String query="insert into login(username,password,usertype) values(\""+uname+"\",\""+pass+"\",\""+utype+"\")";
@@ -78,6 +80,9 @@ public class Register extends JFrame implements ActionListener{
 					PreparedStatement stmt=con.prepareStatement(query);
 					int rowsAffected=stmt.executeUpdate();
 					System.out.println("Querry okay! "+rowsAffected+" Rows Affected!");
+					funcReset();
+					stmt.close();
+					con.close();
 				}
 			}catch(SQLException sqle){
 				JOptionPane.showMessageDialog(this, sqle.getMessage(),"ERROR!", JOptionPane.ERROR_MESSAGE);

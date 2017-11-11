@@ -64,7 +64,7 @@ public class Register extends JFrame implements ActionListener{
 		else{
 			try{
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject","root","tanay1998");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demoproject","root","root");
 				String uname=username.getText();
 				String utype=usertype.getText();
 				char[] passc=password.getPassword();

@@ -36,7 +36,34 @@ public class UsingSwingMenus extends JFrame{
 		i10=new JRadioButtonMenuItem("Item10");
 		i11=new JRadioButtonMenuItem("Item11");
 		i12=new JRadioButtonMenuItem("Item12");
+		m1.add(i1);
+		m1.addSeparator();
+		m1.add(i2);
+		m1.addSeparator();
+		m1.add(i3);
+		m1.addSeparator();
+		m1.add(i7);
+		m1.addSeparator();
+		m1.add(i8);
+		m1.addSeparator();
+		m1.add(i9);
 		
+		grp=new ButtonGroup();
+		grp.add(i10);
+		grp.add(i11);
+		grp.add(i12);
+		
+		m2.add(i4);
+		m2.addSeparator();
+		m2.add(i5);
+		m2.addSeparator();
+		m2.add(i6);
+		m2.addSeparator();
+		m2.add(i10);
+		m2.addSeparator();
+		m2.add(i11);
+		m2.addSeparator();
+		m2.add(i12);
 	}
 	public static void main(String[] args){
 		new UsingSwingMenus("Using Menus").setVisible(true);

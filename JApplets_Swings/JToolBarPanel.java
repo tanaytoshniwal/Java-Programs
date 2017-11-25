@@ -20,6 +20,7 @@ public class JToolBarPanel extends JPanel{
 		toolbar.add(b5);
 		toolbar.add(b6);
 		add(toolbar);
+		toolbar.setEnabled(false);
 		toolbar.setOrientation(JToolBar.VERTICAL);
 	}
 }

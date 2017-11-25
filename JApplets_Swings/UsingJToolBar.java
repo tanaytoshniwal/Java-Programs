@@ -11,6 +11,7 @@ public class UsingJToolBar extends JFrame{
 		pane=new JSplitPane();
 		pane.setEnabled(false);
 		pane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+		pane.setLeftComponent(new JToolBarPanel());
 		add(pane);
 	}
 	public static void main(String[] args){

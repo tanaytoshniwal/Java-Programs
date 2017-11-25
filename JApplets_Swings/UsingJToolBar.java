@@ -6,7 +6,7 @@ public class UsingJToolBar extends JFrame{
 	JSplitPane pane;
 	public UsingJToolBar(String str){
 		super(str);
-		setSize(500,500);
+		setSize(getToolkit().getScreenSize());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pane=new JSplitPane();
 		pane.setEnabled(false);

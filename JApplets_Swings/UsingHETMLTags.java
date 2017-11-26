@@ -1,6 +1,10 @@
+import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -12,6 +16,14 @@ public class UsingHETMLTags extends JFrame{
 		JButton btn=new JButton("<HTML><FONT face='arial' size='30' bgcolor='yello' color='blue'>Button");
 		btn.setOpaque(true);
 		add(btn);
+		btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				Color c=JColorChooser.showDialog(UsingHETMLTags.this, "Choose Backgroung", Color.black);
+				getContentPane().setBackground(c);
+			}
+		});
 	}
 	public static void main(String[]  args){
 		new UsingHETMLTags().setVisible(true);

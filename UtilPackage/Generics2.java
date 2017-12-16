@@ -14,7 +14,7 @@ public class Generics2 {
 		Demo2<String, Integer> object1=new Demo2<>("hello",999);
 		object1.get();
 
-		Demo2<Integer, Float> object2=new Demo2<>(6,9.9f);
+		Demo2<Integer, Float> object2=new Demo2<>(6, 9.9f);
 		object2.get();
 
 		Demo2 object3=new Demo2(6,9.9);

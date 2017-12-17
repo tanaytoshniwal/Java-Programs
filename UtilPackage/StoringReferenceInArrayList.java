@@ -11,5 +11,9 @@ public class StoringReferenceInArrayList {
 			list.add(stud[i]);
 		}
 		System.out.println(list.size()+":::"+list);
+		System.out.println("-------------------------------------------");
+		for(Student s:list){
+			s.print();
+		}
 	}
 }
